@@ -1,0 +1,41 @@
+.navbar-brand {
+	display: flex;
+	align-items: center;
+}
+.result {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 90%;
+}
+.container {
+	margin-top: 3rem;
+}
+.result {
+	margin: 3rem auto;
+}
+h2,h3,h4{
+	text-align: center;
+}
+.card {
+	width: 14rem;
+	height: 12rem;
+    padding: 1rem;
+}
+.card h3 {
+	margin: 1rem auto;
+	font-family: "Oswald", sans-serif;
+	font-weight: bold;
+}
+.card p {
+	font-size: 1.2rem;
+	margin: 1rem auto;
+	font-family: "Nunito", sans-serif;
+}
+.procediment-div{
+	border: 1px solid #e1e1e1;
+	border-radius: 3px;
+}
+.hidden{
+	display:none;
+}
