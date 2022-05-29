@@ -127,9 +127,10 @@ function procedOxoanióComp(el,valprin) {
     ${el[4].name.symbol}<sup>${el[3]}</sup>
     (${symbol}<sub>${((simp)?"":2)}</sub>O<sub>${val+1}</sub>)<sup>-2</sup> &rarr;${el[4].name.symbol}<sub>2</sub>(${symbol}O<sub>${simp?(val+1):(val+1)/2}</sub>)<sub>${el[3]}</sub>
     </div>
-    <br> Simplifiquem: <br>
+    <br> ${el[3]%2==0 ? "Simplifiquem:":""} <br>
     <div class="proced-box">  
-    <span>${el[4].name.symbol}<sub>${el[3]%2==0?"":2}</sub>(${symbol}O<sub>${simp?(val+1):(val+1)/2}</sub>)<sub>${el[3]%2==0?((el[3]/2)==1?"":(el[3]/2)):el[3]}</sub></span>
+    <span>${el[4].name.symbol}<sub>${el[3]%2==0?"":2}</sub>(${symbol}O<sub>${simp?(val+1):(val+1)/2}</sub>)<sub>${el[3]%2==0?
+        ((el[3]/2)==1?"":el[3]/2):(el[3]==1?"":el[3])}</sub></span>
     ${(simp) ? ("<br><b>" + capitalize(findName([valprin,el[1], "oxoanio"]).tradicional) + " de " + capitalize(el[4].name.fullName) + "</b>") : ""}
     
     </div>
