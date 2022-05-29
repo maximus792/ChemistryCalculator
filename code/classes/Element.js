@@ -122,13 +122,6 @@ class Element {
         const hidracid = new Hidracid(e);
         this.proced.push(hidracid.resolve());
       }
-      
-    }
-      else if (e[2] == "H" && this.aq == false){
-        console.log("hidrur");
-        const hidrur = new Hidrur(e);
-        this.proced.push(hidrur.resolve());
-      
     } else if (
       e.length / 2 == 2 &&
       e.indexOf("H") >= 0 &&
@@ -200,6 +193,10 @@ class Element {
 
           break;
       }*/
+    } else if (e[2] == "H" && this.aq == false && e.length / 2 == 2) {
+      console.log("hidrur");
+      const hidrur = new Hidrur(e);
+      this.proced.push(hidrur.resolve());
     } else if (
       e.length / 2 == 2 &&
       (e.indexOf("F") > 0 ||
