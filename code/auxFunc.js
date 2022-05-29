@@ -23,8 +23,9 @@ function findName(arr) {//arr resolve del oxid ex
 
     else if (arr[2] == "hidrur")
         return {
-            stock: `${element.name.lexeme+"ur d'hidrògen"}`
+            stock: `Hidrur de ${element.name.fullName} (${roman(valence)})`
         }
+    
 
     else if (arr[2] == "hidrurNP")
         return {

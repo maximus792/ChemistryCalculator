@@ -15,9 +15,12 @@ class Combbin{
 		}); 
 
         while (this.e[1] != Math.abs(element.valences[0])){
-            if (this.e[0]>=10)
-                throw "La valencia no es correcta";
-            arr = [];
+            if (this.e[0]>=10){
+                $(".procediment-div").hide();
+        $(".procediment").hide();
+            alert("La valencia no és correcta")
+                throw "La valencia no és correcta";}
+            var arr = [];
             this.e.forEach(element => {
                 if (!isNaN(element))
                     arr.push(element*2)
@@ -33,8 +36,11 @@ class Combbin{
                 element2 = el
         });
 
-        if (!element2.valences.includes(this.e[3]))
-            throw "La valencia no es correcta"
+        if (!element2.valences.includes(this.e[3])){
+            $(".procediment-div").hide();
+        $(".procediment").hide();
+            alert("La valencia no és correcta")
+            throw "La valencia no és correcta"}
 
 
         return [this.e[1],element,"combbin", this.e[3], element2]

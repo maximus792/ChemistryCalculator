@@ -121,11 +121,14 @@ class Element {
         console.log("sals  d'hidracid");
         const hidracid = new Hidracid(e);
         this.proced.push(hidracid.resolve());
-      } else {
+      }
+      
+    }
+      else if (e[2] == "H" && this.aq == false){
         console.log("hidrur");
         const hidrur = new Hidrur(e);
         this.proced.push(hidrur.resolve());
-      }
+      
     } else if (
       e.length / 2 == 2 &&
       e.indexOf("H") >= 0 &&

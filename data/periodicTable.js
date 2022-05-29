@@ -451,7 +451,7 @@ const json = {
 
 		{
 			name: {
-				lexeme: 'sulfur',
+				lexeme: 'sulf',
 				fullName: 'sofre',
 				symbol: 'S',
 			},

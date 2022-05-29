@@ -7,13 +7,13 @@ class Hidrur{
         var element = {};
         
 		json.elements.forEach((el) => {
-			if (el.name.symbol == this.e[2]) {
+			if (el.name.symbol == this.e[0]) {
 				element = el;
 			}
 		}); 
-        if (this.e[1] != Math.abs(element.valences[0]))
+        if (!element.valences.includes(this.e[3]))
             throw 'La valencia no és correcta';
 
-        return [element.valences[0], element, "hidrur"];
+        return [this.e[3], element, "hidrur"];
     }
 }

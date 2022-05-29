@@ -149,7 +149,7 @@ function procedHidrur(el){
     Formem l'hidrur:
     <br><br>
     <div class="proced-box">
-    H<sup>-1</sup> + ${symbol}<sup>${val}</sup> &rarr; H<sub>${val == -1 ? "": Math.abs(val)}</sub>${symbol}<br>
+    H<sup>-1</sup> + ${symbol}<sup>${val}</sup> &rarr; ${symbol}H<sub>${val == -1 || val == 1 ? "": Math.abs(val)}</sub><br>
     ${capitalize(findName(el).stock)}
     </div>
     ` 
@@ -188,10 +188,49 @@ text2 = `
     <div class="proced-box">
     ${symbol}<sup>-${val}</sup> + ${el[4].name.symbol}<sup>${el[3]}</sup> &rarr; ${el[4].name.symbol}<sub>${val==1?"":val}</sub>${symbol}<sub>${el[3]==1?"":el[3]}</sub><br>
     <br>
-    <b>${capitalize(findName(el).tradicional)}</b>
+    ${!(val%2==0&&el[3]%2==0)?"<b>"+capitalize(findName(el).tradicional)+"</b>":""}
     </div>
     ` 
+
+if(val%2==0 &&el[3]%2==0){
+    val=val/2
+    val2=el[3]/2
+text2+=
+`<br><br>
+Simplifiquem:
+<div class="proced-box">
+${el[4].name.symbol}<sub>${val==1?"":val}</sub>${symbol}<sub>${val2==1?"":val2}</sub><br>
+<b>${capitalize(findName(el).tradicional)}</b>
+</div>
+`}
+function procedPeroxid(el){
+    symbol = el[1].name.symbol
+    val = el[0]
+    text = `
+    PERÒXIDS EN DESENVOLUPAMENT!!
+    ` 
+
+    procedEstructure("Formem el Peròxid", text)
+
+}
+
 procedEstructure("Formem el Compost Binari", text2)
+}
+
+function procedNP(el){
+    symbol = el[1].name.symbol
+    val = el[0]
+    text = `
+    <div class="proced-box">
+        ${symbol}<sup>${val}</sup> + H<sup>-1</sup> &rarr; ${symbol}H<sub>${val}</sub>
+        <br>
+        <b>${capitalize(findName(el).tradicional)}</b>
+    </div>
+    ` 
+    
+
+    procedEstructure("Elements amb nom propi", text)
+
 }
 
 function procedEstructure(title, text) {
@@ -215,6 +254,7 @@ function writeDocument(e) {
         else if (el[2] == "oxoaniocomp") procedOxoanióComp(el,e.proced[0][0])
         else if (el[2]=="hidrur") procedHidrur(el)
         else if (el[2] == "combbin") procedCombbin(el)
+        else if( el[2]=="hidrurNP") procedNP(el)
     })
     $(".procediment-div").show()
     $(".procediment").show()
