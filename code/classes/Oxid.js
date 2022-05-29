@@ -3,29 +3,43 @@ class Oxid {
 		this.e = arr;
 	}
 
-	findVal(a) {
+	static findVal(a) {
 		return (a[3] * 2) / a[1];
 	}
 	
 	resolve() {
-		let val = this.findVal(this.e);
+
+		let val = Oxid.findVal(this.e);
+		
 		var element = {};
+
 		json.elements.forEach((el) => {
 			if (el.name.symbol == this.e[0]) {
 				element = el;
 			}
 		});
+
+
 		if (element == {}) {
 			//comprovar que si no troba l'element si tira un undefinded
 			throw "L'element no existeix.";
-			
-			
 		}
-		else if (element.valences.indexOf(val) == -1) {
+
+		else if (element.valences.indexOf(val) == -1 && this.e[3] == 2 && (element.group == 1 || element.group == 2)) {
 			
-			throw 'La valencia no és correcta';
+			console.log("peroxid-1");
+			
+			if ((element.group == 1 || element.group == 2) && this.e[3] == 2){
+				console.log("peroxid")
+				var peroxid = new Peroxid(element, val);
+				return peroxid.resolve();
+			}
+			else
+				throw 'La valencia no és correcta';
 		}
 		else{
+			if (!element.valences.includes(val))
+				throw "La valencia no és correcta";
 			return [val, element, "oxid"];
 		}
 	}

@@ -14,20 +14,48 @@ function integrifyNumbers(arr) {
 function findName(arr) {//arr resolve del oxid ex
 	var valence = arr[0];
 	var element = arr[1];
+    var t = terms[0];
 
-	totalValences = element.valences.filter(function (x) { return x > -1; });
-    console.log(totalValences);
+    if (arr[2] == "salHidracid")
+        return {
+            tradicional: `Àcid ${element.name.lexeme+"hídric"}`
+        }
+
+    else if (arr[2] == "hidrur")
+        return {
+            stock: `${element.name.lexeme+"ur d'hidrògen"}`
+        }
+
+    else if (arr[2] == "hidrurNP")
+        return {
+            tradicional: hidrurNPnamer(element.name.symbol)
+        }
+
+    else if (arr[2] == "oxoanio")
+        t = terms[1];
+
+    else if (arr[2] == "oxoaniocomp")
+        return "aqui ha de retornar sulfat de coure";
+    
+    else if (arr[2] == "combbin")
+        return {
+            tradicional: combbinNamer(arr)
+        }
+    
+	totalValences = element.valences.filter(function (x) { return x > -1; }); //array totes les valències de cada element central sense el negatiu
     return {
         stock: (element.name.fullName+" ("+roman(valence).toString()+")"),
-        tradicional: traditionalNamer(valence, element, terms[0], totalValences),
-        sistematica: sistematicNamer(valence, element, terms[0], totalValences)
+        tradicional: traditionalNamer(valence, element, t, totalValences),
+        sistematica: sistematicNamer(valence, element, totalValences, arr[2])
     };
 }
 
 
 function traditionalNamer(val, element, termsToUse, totalValences){
+
     if (totalValences.length == 1)
         return element.name.lexeme+termsToUse[1];
+
     else if (totalValences.length == 2){
         switch (val){
             case totalValences[0]:
@@ -61,9 +89,15 @@ function traditionalNamer(val, element, termsToUse, totalValences){
     
 }
 
-function sistematicNamer(val, element){
-    //("Òxid de " + element.name.fullName+" ("+valence.toString()+")")
-    
+
+function sistematicNamer(val, element, totalValences, type){
+    if (type == "oxoacid"){
+        var itoat=0;
+        if (totalValences.indexOf(val)+1 >= (totalValences.length+1)/2)
+            itoat=1;
+        return (prefix[totalValences.indexOf(val)+1]+"oxo"+element.name.lexeme+terms[1][itoat]+" (" +roman(val)+ ") " + " d'hidrògen");
+    }
+    // per a òxids
     if(val%2 == 0){
         return (prefix[(val/2)-1] + "òxid de " + element.name.fullName)
     }
@@ -88,4 +122,39 @@ function roman(num) {
     while (i--)
     roman_num = (key[+digits.pop() + (i * 10)] || "") + roman_num;
     return Array(+digits.join("") + 1).join("M") + roman_num;
+}
+
+
+function hidrurNPnamer(s){
+    switch (s){
+        case "B":
+            return "Borà";
+        case "C":
+            return "Metà";
+        case "Si":
+            return "Silà";
+        case "N":
+            return "Amoníac";
+        case "P":
+            return "Fosfina";
+        case "As":
+            return "Arsina";
+        case "Sb":
+            return "Estibina";
+        case "Bi":
+            return "Bismutina";
     }
+}
+
+function combbinNamer(arr){
+    result ="";
+    var element = arr[1];
+
+    var element2 = arr[4];
+
+    result += element.name.lexeme+"ur de ";
+    result+= element2.name.fullName+` (${roman(arr[3])})`;
+    return result;
+
+    
+}

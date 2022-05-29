@@ -1,129 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="styles.css" />
 
-    <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&family=Oswald:wght@300&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
-      <symbol
-        id="exclamation-triangle-fill"
-        fill="currentColor"
-        viewBox="0 0 16 16"
-      >
-        <path
-          d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-        />
-      </symbol>
-    </svg>
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img
-            src="images/atom.png"
-            alt=""
-            width="40"
-            height="40"
-            class="d-inline-block align-text-top"
-          />
-          PUYOLIUM
-        </a>
-      </div>
-    </nav>
-    <div class="container">
-      <div class="input-group mb-3 w-50 mx-auto">
-        <input
-          class="form-control"
-          type="text"
-          placeholder="Inserta aquí la formula"
-          id="elementInput"
-          value="SO3"
-        />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <link rel="stylesheet" href="./mathquill-0.10.1/mathquill.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&family=Oswald:wght@300&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path
+        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+    </symbol>
+  </svg>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="images/atom.png" alt="" width="40" height="40" class="d-inline-block align-text-top" />
+        PUYOLIUM
+      </a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="input-group mb-3 w-50 mx-auto">
+      <div class="subinputdiv">
+        <p class="input"><span id="math-input">K2(SO4)</span></p>
         <button id="send" type="button" class="btn btn-primary btn-lg">
-          Executar
-        </button>
+          <span>Executar</span>
+        </button><br>
+        <div class="buttons-input">
+          <button id="sub">a<sub>x</sub></button>
+          <button id="sup">a<sup>x</sup></button>
+          <button id="sub2">a<sub>2</sub></button>
+          <button id="sup2">a<sup>2</sup></button>
+        </div>
       </div>
 
-      <h2 class="procediment" style="margin-top: 2rem;">PROCEDIMENT</h2>
-      <div class="container procediment-div">
-        <h3 style="margin: 2rem 0;">Trobem la valencia</h3>
-        <div class="simplify-div">
-          <p>
-            Com que s'ha simplificat, per tal de trobar la valencia, desfem la
-            simplificació:
-          </p>
-          <p>
-            <span class="simplified"></span> &#8594;
-            <span class="unsimplified"></span>
-          </p>
-        </div>
-      </div>
-      <h2 style="margin-top: 2rem;">RESULTAT</h2>
-      <div class="result">
-        <div class="stock card">
-          <h3>Stock</h3>
-          <p class="res-p"></p>
-        </div>
-        <div class="tradicional card">
-          <h3>Tradicional</h3>
-          <p class="res-p"></p>
-        </div>
-        <div class="sistematica card">
-          <h3>Sistematica</h3>
-          <p class="res-p"></p>
-        </div>
-      </div>
     </div>
 
-    <div
-      class="toast position-fixed bottom-1 end-1 align-items-center end-0 text-white bg-danger border-0"
-      role="alert"
-      aria-live="assertive"
-      aria-atomic="true"
-    >
-      <div class="d-flex">
-        <div class="toast-body">Hello, world! This is a toast message.</div>
-        <button
-          type="button"
-          class="btn-close btn-close-white me-2 m-auto"
-          data-bs-dismiss="toast"
-          aria-label="Close"
-        ></button>
-      </div>
+    <h2 class="procediment" style="margin-top: 2rem;">PROCEDIMENT</h2>
+    <div class="container procediment-div">
+
     </div>
+    
 
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
+  <div class="toast position-fixed bottom-1 end-1 align-items-center end-0 text-white bg-danger border-0" role="alert"
+    aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">Hello, world! This is a toast message.</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+        aria-label="Close"></button>
+    </div>
+  </div>
 
-    <!--<script
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="./mathquill-0.10.1/mathquill.js"></script>
+
+  <!--<script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>-->
-    <script src="data/periodicTable.js"></script>
-    <script src="code/classes/Element.js"></script>
-    <script src="code/classes/Oxid.js"></script>
-    <script src="code/auxFunc.js"></script>
-    <script src="code/index.js"></script>
-  </body>
+  <script src="code/classes/Oxoacid.js"></script>
+  <script src="code/classes/Peroxid.js"></script>
+  <script src="data/periodicTable.js"></script>
+  <script src="code/classes/Element.js"></script>
+  <script src="code/classes/Oxid.js"></script>
+  <script src="code/classes/Hidracid.js"></script>
+  <script src="code/auxFunc.js"></script>
+  <script src="code/classes/Hidrur.js"></script>
+  <script src="code/classes/HidrurNP.js"></script>
+  <script src="code/classes/Oxoanio.js"></script>
+  <script src="code/classes/OxoanioComp.js"></script>
+  <script src="code/proced.js"></script>
+  <script src="code/classes/Combbin.js"></script>
+  <script src="code/index.js"></script>
+</body>
+
 </html>

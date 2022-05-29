@@ -2,6 +2,15 @@ const json = {
 	elements: [
 		{
 			name: {
+				lexeme: "hidr",
+				fullname: "hidrogen",
+				symbol: "H"
+			},
+			group: 1,
+			valences: [1],
+		},
+		{
+			name: {
 				lexeme: 'lit',
 				fullName: 'liti',
 				symbol: 'Li',
@@ -157,7 +166,7 @@ const json = {
 				symbol: 'Cr',
 			},
 			group: 6,
-			valences: [2, 3, 4, 5, 6],
+			valences: [3, 6]
 		},
 
 		{
@@ -487,7 +496,7 @@ const json = {
 				symbol: 'F',
 			},
 			group: 17,
-			valences: [-1],
+			valences: [-1, 1],
 		},
 
 		{
@@ -533,5 +542,5 @@ const json = {
 };
 
 
-const terms = [["ós", "ic"], ["it", "at"]]
-const prefix = ["mon", "di", "tri", "tetra", "penta", "hexa", "hepta", "octa", "nona", "deca"]
+const terms = [["ós", "ic"], ["it", "at"]];
+const prefix = ["mon", "di", "tri", "tetra", "penta", "hexa", "hepta", "octa", "nona", "deca"];
