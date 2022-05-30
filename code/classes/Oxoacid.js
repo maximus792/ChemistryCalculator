@@ -11,13 +11,16 @@ class Oxoacid {
       Toast("No es pot fer un oxoacid amb aquest element");
       throw "No es pot fer un oxoacid amb aquest element";
     }
+
     this.e[1] = Math.abs(this.e[1]);
+    console.log(this.e);
     var mult = 1;
     if (this.e[1] == 1) mult = 2;
     if (this.e[5] == 1) {
       this.e[3] += 1;
       this.e[5] += 1;
     }
+    console.log(this.e);
 
     console.log("passant al oxid:", [
       this.e[2],

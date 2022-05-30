@@ -42,7 +42,6 @@ class Combbin{
             Toast("La valencia no és correcta")
             throw "La valencia no és correcta"}
 
-
         return [this.e[1],element,"combbin", this.e[3], element2]
     }
 }

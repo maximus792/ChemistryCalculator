@@ -3,7 +3,7 @@ const json = {
 		{
 			name: {
 				lexeme: "hidr",
-				fullname: "hidrogen",
+				fullName: "hidrogen",
 				symbol: "H"
 			},
 			group: 1,

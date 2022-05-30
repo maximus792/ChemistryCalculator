@@ -153,6 +153,7 @@ function hidrurNPnamer(s){
 }
 
 function combbinNamer(arr){
+    console.log("arr", arr)
     result ="";
     var element = arr[1];
 

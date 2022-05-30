@@ -252,11 +252,11 @@ function procedCombbin(el) {
     H<sup>1</sup> + ${symbol}<sup>-${val}</sup> &rarr; H<sub>${
     val == -1 || val == 1 ? "" : Math.abs(val)
   }</sub>${symbol}<br>
-    ${capitalize(findName(el).stock)}
+    <b>${(el[4].name.symbol != "H")?"":capitalize(findName(el).tradicional)}
     </div>
     `;
   procedEstructure("Formem l'Hidrur", text1);
-
+if(el[4].name.symbol != "H"){
   text2 = `
     Formem l'Anió:
     <br><br>
@@ -297,7 +297,7 @@ ${el[4].name.symbol}<sub>${val == 1 ? "" : val}</sub>${symbol}<sub>${
   }
 
 
-  procedEstructure("Formem el Compost Binari", text2);
+  procedEstructure("Formem el Compost Binari", text2);}
 }
 
 
@@ -331,15 +331,17 @@ function procedPeroxid(el) {
 function procedSalHidracid(el){
   symbol = el[1].name.symbol;
   val = el[0];
-  text = `
-    <div class="proced-box">
-        ${symbol}<sup>${val}</sup> + H<sup>-1</sup> &rarr; ${symbol}H<sub>${val}</sub>
-        <br>
-        <b>${capitalize(findName(el).tradicional)}</b>
-    </div>
+  text = `Formem l'hidrur:
+  <br><br>
+  <div class="proced-box">
+  H<sup>-1</sup> + ${symbol}<sup>${val}</sup> &rarr; H<sub>${val==1||val==-1?"":val}</sub>${symbol}<sub>${
+  val == -1 || val == 1 ? "" : Math.abs(val)
+}</sub><sub>(aq)</sub><br>
+<b>${capitalize(findName(el).tradicional)}</b>
+  </div>
     `;
 
-  procedEstructure("Elements amb nom propi", text);
+  procedEstructure("Sals d'Hidràcid", text);
 }
 
 function procedNP(el) {
