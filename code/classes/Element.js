@@ -47,7 +47,16 @@ class Element {
       Toast("Error al calcular :(");
       throw "L'element descomposat i el donat no coincideixen.";
     }
-
+    var i;
+    result.forEach(element1 => {
+      i=0;
+      result.forEach(element2 => {
+        if (element1 == element2 && (/[a-zA-Z]/).test(element1))
+          i++;
+      });
+      if (i>1)
+        throw "Repetint Elements!";
+    });
     return integrifyNumbers(result);
   }
 
@@ -110,6 +119,7 @@ class Element {
       e1.push(parseInt(e[e.length - 1].toString()[1]));
       e = e1;
     }
+
 
     if (this.superIndex != 0) {
       console.log("oxoanió");
@@ -240,7 +250,11 @@ class Element {
       this.proced.push(oxoaniocomp.resolve());
     } 
     else if(this.original.includes("OH")){
+      if (e.length/2 == 3)
+        e.push(1);
       console.log("hidroxid");
+      const hidroxid = new Hidroxid(e);
+      this.proced.push(hidroxid.resolve());
     }
     else {
       $(".procediment-div").hide();

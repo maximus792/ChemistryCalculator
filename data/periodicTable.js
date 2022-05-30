@@ -62,7 +62,7 @@ const json = {
 		{
 			name: {
 				lexeme: 'frans',
-				fullName: 'fransi',
+				fullName: 'franci',
 				symbol: 'Fr',
 			},
 			group: 1,
@@ -251,7 +251,7 @@ const json = {
 
 		{
 			name: {
-				lexeme: 'or',
+				lexeme: 'aur',
 				fullName: 'or',
 				symbol: 'Au',
 			},

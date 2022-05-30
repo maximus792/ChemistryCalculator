@@ -52,7 +52,7 @@ function findName(arr) {//arr resolve del oxid ex
     return {
         stock: (element.name.fullName+" ("+roman(valence).toString()+")"),
         tradicional: traditionalNamer(valence, element, t, totalValences).replace("sulfós", "sulfurós").replace("sulfic", "sulfúric"),
-        sistematica: sistematicNamer(valence, element, totalValences, arr[2])
+        sistematica: sistematicNamer(valence, element, totalValences, arr[2]).replace("oxid","òxid").replace("hidroxid, hidròxid").replace("monh","monoh")
     };
 }
 
@@ -103,12 +103,14 @@ function sistematicNamer(val, element, totalValences, type){
             itoat=1;
         return (prefix[totalValences.indexOf(val)+1]+"oxo"+element.name.lexeme+terms[1][itoat]+" (" +roman(val)+ ") " + " d'hidrògen");
     }
+    else if (type=="hidroxid")
+        return (prefix[val-1] + `${type} de ` + element.name.fullName)
     // per a òxids
-    if(val%2 == 0){
-        return (prefix[(val/2)-1] + "òxid de " + element.name.fullName)
+    else if(val%2 == 0){
+        return (prefix[(val/2)-1] + `${type} de ` + element.name.fullName)
     }
     else{
-        return (prefix[(val)-1] + "òxid de " + prefix[1] + element.name.fullName)
+        return (prefix[(val)-1] + `${type} de ` + prefix[1] + element.name.fullName)
     }
 
 }

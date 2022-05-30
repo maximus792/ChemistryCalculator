@@ -43,6 +43,19 @@ function procedOxid(el) {
     console.log(findName(el));
   }
 
+  if(el[1].name.symbol == "H"){
+    text+= `
+    <br><br>
+    El nom més comú d'aquest compost:
+    <br><br>
+    <div class="proced-box">
+    <span>H<sub>2</sub>O</span>
+    <br>
+    <b>Aigua</b>
+    </div>
+    `
+
+  }
   procedEstructure("Formem l'Òxid", text);
 }
 
@@ -319,11 +332,24 @@ function procedPeroxid(el) {
     text+=`
     <br>Simplifiquem:<br>
     <div class="proced-box">
-    ${symbol}<sub>2</sub>(O<sub>2</sub>)<sub>${val}</sub> &rarr; ${symbol}(O<sub>2</sub>)<sub>${(val/2==1)?"":val/2}</sub>
+    ${symbol}<sub>2</sub>(O<sub>2</sub>)<sub>${val}</sub> &rarr; ${symbol}(O<sub>2</sub>)<sub>${(val/2==1 || val==1)?"":val/2}</sub>
     <br>
     <b>${(val%2!=0)?"":("Peròxid de " + findName(el).stock)}</b>
     </div>`
     
+    if(el[1].name.symbol == "H"){
+      text+= `
+      <br><br>
+      El nom més comú d'aquest compost:
+      <br><br>
+      <div class="proced-box">
+      <span>H<sub>2</sub>O<sub>2</sub></span>
+      <br>
+      <b>Aigua oxigenada</b>
+      </div>
+      `
+  
+    }
 
     procedEstructure("Formem el Peròxid", text);
   }
@@ -342,6 +368,21 @@ function procedSalHidracid(el){
     `;
 
   procedEstructure("Sals d'Hidràcid", text);
+}
+
+function procedHidroxid(el){
+  symbol = el[1].name.symbol;
+  val = el[0];
+  text = `
+  Formem l'Hidròxid afegint (OH)<sup>-1</sup>:
+    <div class="proced-box">
+        ${symbol}<sup>${val}</sup> + (OH)<sup>-1</sup> &rarr; ${symbol}(OH)<sub>${val==1?"":val}</sub>
+        <br>
+        <b>Hidròxid de ${capitalize(findName(el).stock)}<br>${capitalize(findName(el).sistematica)}</b>
+    </div>
+    `;
+
+  procedEstructure("Formem l'Hidròxid", text);
 }
 
 function procedNP(el) {
@@ -382,11 +423,10 @@ function writeDocument(e) {
       else if (el[2] == "hidrurNP") procedNP(el);
       else if (el[2] == "peroxid") procedPeroxid(el);
       else if(el[2]=="salHidracid") procedSalHidracid(el)
+      else if(el[2] == "hidroxid") procedHidroxid(el)
     });
     $(".procediment-div").slideDown();
     $(".procediment").show();
-  } else if(e.proced[0][2] == "peroxid"){
-      Toast("Peròxids en desenvolupament!")
   }
   else {
     $(".procediment-div").hide();
