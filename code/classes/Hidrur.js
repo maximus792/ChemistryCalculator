@@ -11,8 +11,11 @@ class Hidrur{
 				element = el;
 			}
 		}); 
-        if (!element.valences.includes(this.e[3]))
-            throw 'La valencia no és correcta';
+        if (!element.valences.includes(this.e[3])){
+            $(".procediment-div").hide();
+        $(".procediment").hide();
+        Toast("La valencia no és correcta")
+            throw 'La valencia no és correcta';}
 
         return [this.e[3], element, "hidrur"];
     }

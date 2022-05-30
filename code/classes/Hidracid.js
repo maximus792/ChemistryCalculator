@@ -15,8 +15,11 @@ class Hidracid{
 			}
 		}); 
 
-        if (this.e[1] != Math.abs(element.valences[0]))
-            throw 'La valencia no és correcta';
+        if (this.e[1] != Math.abs(element.valences[0])){
+            $(".procediment-div").hide();
+        $(".procediment").hide();
+        Toast("La valencia no és correcta")
+            throw 'La valencia no és correcta';}
 
         return [element.valences[0], element, "salHidracid"];
     }

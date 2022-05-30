@@ -10,11 +10,12 @@ class OxoanioComp {
     });
 
     while (!element2.valences.includes(this.e[6])) {
-      if (this.e[6] > element2.valences[element2.valences.length - 1])
+      if (this.e[6] > element2.valences[element2.valences.length - 1]){
         $(".procediment-div").hide();
-      $(".procediment").hide();
-      alert("La valencia no és correcta");
-      throw "La valencia no és correcta--OxoanioComp";
+        $(".procediment").hide();
+        Toast("La valencia no és correcta");
+        throw "La valencia no és correcta--OxoanioComp";
+      }
       this.e[1] *= 2;
       this.e[6] *= 2;
     }

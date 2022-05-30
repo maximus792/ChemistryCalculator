@@ -8,7 +8,7 @@ class Oxoacid {
     if (["C", "N", "S", "Se", "Te", "Cl", "Br", "I"].indexOf(this.e[2]) == -1) {
       $(".procediment-div").hide();
       $(".procediment").hide();
-      alert("No es pot fer un oxoacid amb aquest element");
+      Toast("No es pot fer un oxoacid amb aquest element");
       throw "No es pot fer un oxoacid amb aquest element";
     }
     this.e[1] = Math.abs(this.e[1]);

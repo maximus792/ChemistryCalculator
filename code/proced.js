@@ -306,11 +306,41 @@ function procedPeroxid(el) {
     symbol = el[1].name.symbol;
     val = el[0];
     text = `
-    PERÒXIDS EN DESENVOLUPAMENT!!
+    En els peròxids, hem de tenir en compte que l'oxigen actúa diferent que en un òxid normal:
+    <div class="proced-box">
+    ${symbol}<sup>${val}</sup> + O<sub>2</sub><sup>-2</sup> &rarr; ${symbol}<sub>2</sub>(O<sub>2</sub>)<sub>${val}</sub>
+    <br>
+    <b>${(val%2==0)?"":("Peròxid de " + findName(el).stock)}</b>
+    
+    </div>
+    
     `;
+    if(val%2==0)
+    text+=`
+    <br>Simplifiquem:<br>
+    <div class="proced-box">
+    ${symbol}<sub>2</sub>(O<sub>2</sub>)<sub>${val}</sub> &rarr; ${symbol}(O<sub>2</sub>)<sub>${(val/2==1)?"":val/2}</sub>
+    <br>
+    <b>${(val%2!=0)?"":("Peròxid de " + findName(el).stock)}</b>
+    </div>`
+    
 
     procedEstructure("Formem el Peròxid", text);
   }
+
+function procedSalHidracid(el){
+  symbol = el[1].name.symbol;
+  val = el[0];
+  text = `
+    <div class="proced-box">
+        ${symbol}<sup>${val}</sup> + H<sup>-1</sup> &rarr; ${symbol}H<sub>${val}</sub>
+        <br>
+        <b>${capitalize(findName(el).tradicional)}</b>
+    </div>
+    `;
+
+  procedEstructure("Elements amb nom propi", text);
+}
 
 function procedNP(el) {
   symbol = el[1].name.symbol;
@@ -349,15 +379,16 @@ function writeDocument(e) {
       else if (el[2] == "combbin") procedCombbin(el);
       else if (el[2] == "hidrurNP") procedNP(el);
       else if (el[2] == "peroxid") procedPeroxid(el);
+      else if(el[2]=="salHidracid") procedSalHidracid(el)
     });
-    $(".procediment-div").show();
+    $(".procediment-div").slideDown();
     $(".procediment").show();
   } else if(e.proced[0][2] == "peroxid"){
-      alert("Peròxids en desenvolupament!")
+      Toast("Peròxids en desenvolupament!")
   }
   else {
     $(".procediment-div").hide();
     $(".procediment").hide();
-    alert("La valencia no és correcta!")
+    Toast("La valencia no és correcta!")
   }
 }

@@ -5,6 +5,6 @@ class Peroxid{
     }
 
     resolve(){
-        return [this.v, this.e, "peroxid"];
+        return [this.e.valences[0], this.e, "peroxid"];
     }
 }

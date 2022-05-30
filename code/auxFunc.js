@@ -11,6 +11,11 @@ function integrifyNumbers(arr) {
 	return result;
 }
 
+function Toast(text){
+    document.querySelector(".toast-body").innerHTML = text
+    $(".toast").toast("show")
+}
+
 function findName(arr) {//arr resolve del oxid ex
 	var valence = arr[0];
 	var element = arr[1];

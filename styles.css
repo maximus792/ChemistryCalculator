@@ -1,173 +1,207 @@
 .navbar-brand {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
+}
+html,
+body {
+  height: 100%;
+}
+.toast {
+  bottom: 1rem !important;
+  right: 0.5rem !important;
 }
 
 .result {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
 }
 
 .container {
-	margin-top: 3rem;
+  margin-top: 3rem;
 }
 
 .result {
-	margin: 3rem auto;
+  margin: 3rem auto;
 }
 
 h2,
 h3,
 h4 {
-	text-align: center;
+  text-align: center;
 }
 
 .card {
-	width: 14rem;
-	height: 12rem;
-	padding: 1rem;
+  width: 14rem;
+  height: 12rem;
+  padding: 1rem;
 }
 
 .card h3 {
-	margin: 1rem auto;
-	font-family: "Oswald", sans-serif;
-	font-weight: bold;
+  margin: 1rem auto;
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
 }
 
 .card p {
-	font-size: 1.2rem;
-	margin: 1rem auto;
-	font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  margin: 1rem auto;
+  font-family: "Nunito", sans-serif;
 }
 
 .procediment-div {
-	border: 1px solid #e1e1e1;
-	border-radius: 3px;
+  border: 1px solid #686868;
+  border-radius: 10px;
+  padding: 1rem;
 }
 
 .hidden {
-	display: none;
-}
-
-
-
-#math-input {
-	width: 15rem;
-	height: 2rem;
-	text-align: center;
-
+  display: none;
 }
 
 #math-input {
-	display: block;
-	margin: 0;
+  width: 15rem;
+  height: 2rem;
+  text-align: center;
+}
 
-	color: inherit;
-	font-family: inherit;
-	font-size: 1rem;
-	font-weight: inherit;
-	border: 2px solid #e1e1e1;
-	border-radius: 0.4rem;
-	transition: box-shadow 300ms;
+#math-input {
+  display: block;
+  margin: 0;
+
+  color: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: inherit;
+  border: 2px solid #e1e1e1;
+  border-radius: 0.4rem;
+  transition: box-shadow 300ms;
 }
 
 #math-input::placeholder {
-	color: #B0BEC5;
+  color: #b0bec5;
 }
 
 #math-input:focus {
-	outline: none;
-	box-shadow: 0.2rem 0.8rem 1.6rem #5e35b1;
+  outline: none;
+  box-shadow: 0.2rem 0.8rem 1.6rem #5e35b1;
 }
 
-
 .buttons-input button {
-	border: 1px solid #cccbcb;
-	background-color: #e1e1e1;
-	border-radius: 5%;
+  border: 1px solid #cccbcb;
+  background-color: #e1e1e1;
+  border-radius: 5%;
 }
 
 .input-group {
-	width: 25rem;
-	height: 10rem;
-	display: flex;
-	justify-content: center;
-	flex-direction: center;
-
+  width: 25rem;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: center;
 }
 
 #send {
-	margin-left: -15rem;
-	width: 5rem;
-	height: 2rem;
-	text-align: center;
-	font-size: 1rem;
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
+  margin-left: -15rem;
+  width: 5rem;
+  height: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-	position: absolute;
-	top: 0;
-	right: 0px;
-	z-index: 2;
-	transform: translateX(2px);
-
+  position: absolute;
+  top: 0;
+  right: 0px;
+  z-index: 2;
+  transform: translateX(2px);
 }
 
 @media (min-width: 950px) {
-	#send {
-		transform: translateX(-3rem);
-	}
+  #send {
+    transform: translateX(-3rem);
+  }
 }
 
 @media (min-width: 1200px) {
-	#send {
-		transform: translateX(-5rem);
-	}
+  #send {
+    transform: translateX(-5rem);
+  }
 }
 
 @media (min-width: 1300px) {
-	#send {
-		transform: translateX(-8rem);
-	}
+  #send {
+    transform: translateX(-8rem);
+  }
 }
 
 @media (max-width: 500px) {
-	#send {
-		transform: translateX(3rem);
-	}
+  #send {
+    transform: translateX(3rem);
+  }
 }
 
 @media (max-width: 300px) {
-	#send {
-		transform: translateX(5rem);
-	}
+  #send {
+    transform: translateX(5rem);
+  }
 }
-
-
 
 .subinputdiv´ {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
 }
 
-
 .proced-box {
-	border: 1px solid #686868;
-	border-radius: 5px;
-	width: 15rem;
-	padding: 1rem;
-	margin: 0 auto;
-	text-align: center;
+  border: 1px solid #686868;
+  border-radius: 15px;
+  width: 15rem;
+  padding: 1rem;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 0 10px 3px #d0d0d0;
+  background-color: #ffffff71;
+  transition: all 0.4s ease-in-out;
+}
+.proced-box:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px 10px #d0d0d0;
 }
 
 .proced-box span {
-	font-size: 1.5rem;
+  font-size: 1.5rem;
+}
+.procediment {
+  font-family: "Bebas Neue", cursive;
+  font-size: 3rem;
+  letter-spacing: 0.2rem;
+  text-shadow: 5px 5px #c7c7c76e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  transition: all 0.3s ease-in-out;
+}
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover {
+  text-shadow: 5px 5px #c7c7c76e;
+  transform: scale(1.1);
+}
+.procediment:hover {
+  text-shadow: 10px 10px #c7c7c76e;
 }

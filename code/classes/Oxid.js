@@ -22,7 +22,7 @@ class Oxid {
       //comprovar que si no troba l'element si tira un undefinded
       $(".procediment-div").hide();
       $(".procediment").hide();
-      alert("L'element no existeix.");
+      Toast("L'element no existeix.");
 
       throw "L'element no existeix.";
     } else if (
@@ -32,14 +32,14 @@ class Oxid {
     ) {
       console.log("peroxid-1");
 
-      if ((element.group == 1 || element.group == 2) && this.e[3] == 2) {
+      if (this.e[3] == 2) {
         console.log("peroxid");
         var peroxid = new Peroxid(element, val);
         return peroxid.resolve();
       } else {
         $(".procediment-div").hide();
         $(".procediment").hide();
-        alert("La valencia no és correcta");
+        Toast("La valencia no és correcta");
 
         throw "La valencia no és correcta";
       }
@@ -47,7 +47,7 @@ class Oxid {
       if (!element.valences.includes(val)) {
         $(".procediment-div").hide();
         $(".procediment").hide();
-        alert("La valencia no és correcta");
+        Toast("La valencia no és correcta");
 
         throw "La valencia no és correcta";
       }

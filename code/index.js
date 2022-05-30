@@ -6,6 +6,7 @@ $(".procediment").hide()
 var MQ = MathQuill.getInterface(2);
 var enteredMath = "H_2SO_4";
 var answerSpan = document.getElementById('math-input');
+
 var answerMathField = MQ.MathField(answerSpan, {
 	handlers: {
 		edit: function () {

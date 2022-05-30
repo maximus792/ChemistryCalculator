@@ -18,7 +18,7 @@ class Combbin{
             if (this.e[0]>=10){
                 $(".procediment-div").hide();
         $(".procediment").hide();
-            alert("La valencia no és correcta")
+            Toast("La valencia no és correcta")
                 throw "La valencia no és correcta";}
             var arr = [];
             this.e.forEach(element => {
@@ -39,7 +39,7 @@ class Combbin{
         if (!element2.valences.includes(this.e[3])){
             $(".procediment-div").hide();
         $(".procediment").hide();
-            alert("La valencia no és correcta")
+            Toast("La valencia no és correcta")
             throw "La valencia no és correcta"}
 
 

@@ -29,7 +29,7 @@ class Element {
     if (el == null || el.length == 0) {
       $(".procediment-div").hide();
       $(".procediment").hide();
-      alert("Error al calcular :(");
+      Toast("Error al calcular :(");
       throw "L'element descomposat està buit.";
     }
     el.forEach((element) => {
@@ -38,13 +38,13 @@ class Element {
       );
     });
 
-    if (s.toLowerCase().indexOf("(aq)") > 0) this.aq = true;
+    if (this.original.toLowerCase().indexOf("(aq)") > 0) this.aq = true;
     else this.aq = false;
 
     if (result.join("") != s && !this.aq) {
       $(".procediment-div").hide();
       $(".procediment").hide();
-      alert("Error al calcular :(");
+      Toast("Error al calcular :(");
       throw "L'element descomposat i el donat no coincideixen.";
     }
 
@@ -64,19 +64,32 @@ class Element {
     return result;
   }
 
-  findGroup() {
-    let e = this.addMissingValences(this.formula);
-    console.log("e", e);
-    console.log("------", this.original[this.original.indexOf("O") + 1]);
+  parenthesisFixer(e){
     if (this.original[this.original.indexOf("O") + 1] == ")") {
       let arr = [];
       e.forEach((element) => {
         arr.push(element);
         if (element == "O") arr.push(1);
       });
-      e = arr;
-      console.log("arr", arr);
+      return arr
     }
+    else if (this.original[this.original.indexOf("H") + 1] == ")") {
+      let arr = [];
+      e.forEach((element) => {
+        arr.push(element);
+        if (element == "H") arr.push(1);
+      });
+      return arr
+    }
+    return e;
+  }
+  
+  findGroup() {
+    let e = this.addMissingValences(this.formula);
+    //arreglador peroxids
+    e = this.parenthesisFixer(e);
+
+
     if (e[5] > 10) {
       let a = e[5];
       e[5] = parseInt(a.toString()[0]);
@@ -92,9 +105,6 @@ class Element {
       e = e1;
     }
 
-    console.log(e);
-    console.log(e.join(""));
-
     if (this.superIndex != 0) {
       console.log("oxoanió");
 
@@ -109,19 +119,17 @@ class Element {
     } else if (
       e[0] == "H" &&
       e.length / 2 == 2 &&
-      (e.indexOf("F") >= 0 ||
+      ((e.indexOf("F") >= 0 ||
         e.indexOf("Cl") >= 0 ||
         e.indexOf("Br") >= 0 ||
         e.indexOf("I") >= 0 ||
         e.indexOf("S") >= 0 ||
         e.indexOf("Se") >= 0 ||
-        e.indexOf("Te") >= 0)
+        e.indexOf("Te") >= 0) && this.aq == true)
     ) {
-      if (this.aq == true) {
         console.log("sals  d'hidracid");
         const hidracid = new Hidracid(e);
         this.proced.push(hidracid.resolve());
-      }
     } else if (
       e.length / 2 == 2 &&
       e.indexOf("H") >= 0 &&
@@ -224,12 +232,16 @@ class Element {
       this.proced.push(oxoaniocomp.father.father.resolve());
       this.proced.push(oxoaniocomp.father.resolve());
       this.proced.push(oxoaniocomp.resolve());
-    } else {
+    } 
+    else if(this.original.includes("OH")){
+      console.log("hidroxid");
+    }
+    else {
       console.log("asdjsafhjfdagjsfadkf", e.length / 2);
       console.log(!e.includes("H"));
       $(".procediment-div").hide();
       $(".procediment").hide();
-      alert("Encara no es pot resoldre aquest compost :(");
+      Toast("Encara no es pot resoldre aquest compost :(");
       throw "No se que cohone e issom!";
     }
   }
