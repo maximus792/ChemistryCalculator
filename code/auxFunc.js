@@ -73,11 +73,11 @@ function traditionalNamer(val, element, termsToUse, totalValences){
     else if (totalValences.length == 3){
         switch (val){
             case totalValences[0]:
-                return element.name.lexeme+termsToUse[0];
+                return "hipo"+element.name.lexeme+termsToUse[0];
             case totalValences[1]:
                 return element.name.lexeme+termsToUse[0];
             case totalValences[2]:
-                    return "per"+element.name.lexeme+termsToUse[1];
+                    return element.name.lexeme+termsToUse[1];
         }
     }
     else if (totalValences.length == 4){

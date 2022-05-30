@@ -171,7 +171,7 @@ const json = {
 
 		{
 			name: {
-				lexeme: 'manganes',
+				lexeme: 'mangan',
 				fullName: 'manganés',
 				symbol: 'Mn',
 			},
@@ -206,7 +206,7 @@ const json = {
 				symbol: 'Ni',
 			},
 			group: 10,
-			valences: [3],
+			valences: [2, 3],
 		},
 
 		{
@@ -226,7 +226,7 @@ const json = {
 				symbol: 'Pt',
 			},
 			group: 10,
-			valences: [4],
+			valences: [2,4],
 		},
 
 		{

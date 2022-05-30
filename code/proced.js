@@ -76,7 +76,7 @@ function procedOxoacid(el) {
   if (!simp)
     text += `
     <br><br>
-    Simplifiquem dividint tot entre 2:<br>
+    Simplifiquem dividint tot entre 2:<br><br>
     <div class="proced-box">
     <span>H${symbol}</sub>O<sub>${
       (val + 1) / 2 == 1 ? "" : (val + 1) / 2
