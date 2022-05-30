@@ -3,9 +3,9 @@ class Element {
     this.original = formula.replaceAll("\\right", "").replaceAll("\\left", "");
     this.formula = formula
       .replaceAll(/\s/g, "")
-      .replace("Aq", "aq")
-      .replace("AQ", "aq")
-      .replace("aQ", "aq")
+      .replace("aq", "Aq")
+      .replace("AQ", "Aq")
+      .replace("aQ", "Aq")
       .replaceAll("_", "")
       .replaceAll("(", "")
       .replaceAll(")", "")
@@ -65,6 +65,10 @@ class Element {
   }
 
   parenthesisFixer(e){
+    if (e.includes("Aq")){
+      e.splice(e.indexOf("Aq")+1);
+      e.splice(e.indexOf("Aq"));
+    }
     if (this.original[this.original.indexOf("O") + 1] == ")") {
       let arr = [];
       e.forEach((element) => {
@@ -95,6 +99,8 @@ class Element {
       e[5] = parseInt(a.toString()[0]);
       e.push(parseInt(a.toString()[1]));
     }
+
+    console.log("e: ", e);
 
     if (e[e.length - 1] >= 10) {
       console.log(e.slice(0, e.length - 2));
@@ -237,8 +243,6 @@ class Element {
       console.log("hidroxid");
     }
     else {
-      console.log("asdjsafhjfdagjsfadkf", e.length / 2);
-      console.log(!e.includes("H"));
       $(".procediment-div").hide();
       $(".procediment").hide();
       Toast("Encara no es pot resoldre aquest compost :(");

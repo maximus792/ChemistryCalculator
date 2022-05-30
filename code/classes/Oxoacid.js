@@ -5,7 +5,7 @@ class Oxoacid {
   }
 
   getOxidResolve() {
-    if (["C", "N", "S", "Se", "Te", "Cl", "Br", "I"].indexOf(this.e[2]) == -1) {
+    if (["C", "N", "S", "Se", "Te", "Cl", "Br", "I", "Cr", "Mn"].indexOf(this.e[2]) == -1) {
       $(".procediment-div").hide();
       $(".procediment").hide();
       Toast("No es pot fer un oxoacid amb aquest element");

@@ -51,7 +51,7 @@ function findName(arr) {//arr resolve del oxid ex
 	totalValences = element.valences.filter(function (x) { return x > -1; }); //array totes les valències de cada element central sense el negatiu
     return {
         stock: (element.name.fullName+" ("+roman(valence).toString()+")"),
-        tradicional: traditionalNamer(valence, element, t, totalValences),
+        tradicional: traditionalNamer(valence, element, t, totalValences).replace("sulfós", "sulfurós").replace("sulfic", "sulfúric"),
         sistematica: sistematicNamer(valence, element, totalValences, arr[2])
     };
 }
@@ -73,11 +73,11 @@ function traditionalNamer(val, element, termsToUse, totalValences){
     else if (totalValences.length == 3){
         switch (val){
             case totalValences[0]:
-                return "hipo"+element.name.lexeme+termsToUse[0];
+                return element.name.lexeme+termsToUse[0];
             case totalValences[1]:
                 return element.name.lexeme+termsToUse[0];
             case totalValences[2]:
-                    return element.name.lexeme+termsToUse[1];
+                    return "per"+element.name.lexeme+termsToUse[1];
         }
     }
     else if (totalValences.length == 4){
