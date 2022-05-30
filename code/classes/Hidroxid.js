@@ -15,5 +15,5 @@ class Hidroxid{
 
 
         return [this.e[6], element ,"hidroxid"];
-    }
+    } 
 }
