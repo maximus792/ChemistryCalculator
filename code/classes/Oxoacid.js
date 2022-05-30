@@ -15,7 +15,11 @@ class Oxoacid {
     this.e[1] = Math.abs(this.e[1]);
     console.log(this.e);
     var mult = 1;
-    if (this.e[1] == 1) mult = 2;
+    if (this.e[1] == 1){
+      this.e[1]*=2;
+      this.e[3]*=2;
+      this.e[5]*=2
+    }
     if (this.e[5] == 1) {
       this.e[3] += 1;
       this.e[5] += 1;
@@ -24,15 +28,15 @@ class Oxoacid {
 
     console.log("passant al oxid:", [
       this.e[2],
-      this.e[3] * mult,
+      this.e[3],
       this.e[4],
-      this.e[5] * mult - 1,
+      this.e[5] - 1,
     ]);
     return new Oxid([
       this.e[2],
-      this.e[3] * mult,
+      this.e[3],
       this.e[4],
-      this.e[5] * mult - 1,
+      this.e[5] - 1,
     ]).resolve();
   }
 
