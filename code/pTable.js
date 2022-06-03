@@ -24,13 +24,13 @@ for (let i=1; i<=18; i++){
     result += `</div>`;
     pTable.innerHTML += result;
 }
-document.querySelectorAll(".val")[47].addEventListener("click",() => {
+/* document.querySelectorAll(".val")[47].addEventListener("click",() => {
     document.querySelector("body").innerHTML='<h1 style="z-inex:99; position: fixed; top:50%; left:50%;  transform: translate(-50%, -50%);color: #FFFFFF; text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;font-size: 5rem;">INFINTE PUYOL</h1><img class="javi" style="height: 100%; width: 100%;" src="./images/javi.jpeg" alt="">'
     for(let i = 0; i<100;i++){
         document.querySelector("body").innerHTML+='<img class="javi" style="height: 100%; width: 100%;" src="./images/javi.jpeg" alt="">'
     }
     console.log("IE2");
-})
+})*/
 
 if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
     alert("Si us plau utilitzeu la pàgina en horitzontal")
