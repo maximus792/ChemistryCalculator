@@ -11,6 +11,12 @@ class Element {
       .replaceAll(")", "")
       .replaceAll("\\left", "")
       .replaceAll("\\right", "")
+      .replace("-", "-1")
+      .replace("+", "+1")
+      .replace("1-", "-1")
+      .replace("2-", "-2")
+      .replace("1+", "1")
+      .replace("2+", "2")
       .split("^")[0];
     this.proced = [];
     this.aq = false;

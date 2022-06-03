@@ -205,3 +205,56 @@ h6:hover {
   transform: scale(1.1);
   text-shadow: 10px 10px #c7c7c76e;
 }
+
+.navbar-cont{
+  margin-right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-cont a{
+  margin: 0 1rem;
+  color: black;
+  text-decoration: none;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1rem;
+}
+.navbar-cont .bi-question-circle{
+  font-size: 1.3rem;
+}
+.hide{
+  display: none!important;
+}
+
+.modal{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  opacity: 0;
+}
+.fading{
+animation: fading .3s;
+opacity: 1;
+}
+@keyframes fading {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+.ayuda-button{
+  border: none;
+  background: transparent;
+}

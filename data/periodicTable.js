@@ -541,6 +541,64 @@ const json = {
 	],
 };
 
+const gnJson = {
+	elements : [
+		{
+			name: {
+				lexeme: "hel",
+				fullName: "heli",
+				symbol: "He"
+			},
+			group: 18,
+			valences: [0]
+		},
+		{
+			name: {
+				lexeme: "neo",
+				fullName: "neó",
+				symbol: "Ne"
+			},
+			group: 18,
+			valences: [0]
+		},
+		{
+			name: {
+				lexeme: "arg",
+				fullName: "argó",
+				symbol: "Ar"
+			},
+			group: 18,
+			valences: [0]
+		},
+		{
+			name: {
+				lexeme: "cript",
+				fullName: "criptó",
+				symbol: "Kr"
+			},
+			group: 18,
+			valences: [0]
+		},
+		{
+			name: {
+				lexeme: "xen",
+				fullName: "xenó",
+				symbol: "Xe"
+			},
+			group: 18,
+			valences: [0]
+		},
+		{
+			name: {
+				lexeme: "rad",
+				fullName: "radó",
+				symbol: "Rn"
+			},
+			group: 18,
+			valences: [0]
+		},
+	]
+}
 
 const terms = [["ós", "ic"], ["it", "at"]];
 const prefix = ["mon", "di", "tri", "tetra", "penta", "hexa", "hepta", "octa", "nona", "deca"];

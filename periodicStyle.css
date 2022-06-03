@@ -1,0 +1,152 @@
+
+.periodic-table-container{
+    width: 95vw;
+    display: grid;
+    grid-template-columns: repeat(19, 1fr);;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.periodic-table-element{
+    height: 4vw;
+    width: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: blue;
+    margin: .1rem;
+    margin-bottom: 2vh;
+    border: none;
+    transition: all .2s ease-in-out;
+}
+
+.periodic-table-element p {
+    display: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.5vw;
+}
+
+.periodic-table-element:hover{
+    transform: scale(2.5);
+    border: 1px solid #868585;
+border-radius: 1px;
+}
+.periodic-table-element:hover h2{
+    font-size: 1.2vw;
+}
+.periodic-table-element:hover p{
+    display: block;
+}
+
+.periodic-table-element h2{
+    font-size: 1.8vw;
+    font-weight: normal;
+}
+
+
+.periodic-table-element h2:hover{
+    text-shadow: none !important;
+    transform: scale(1)!important;
+}
+
+.periodic-table-blank-element{
+    height: 4vw;
+    width: 4vw;
+    margin: .1rem;
+    margin-bottom: 2vh;
+}
+
+
+.periodic-table-group-1 .periodic-table-element{
+
+    background-color: rgb(193, 117, 255)
+}
+
+.periodic-table-group-2 .periodic-table-element{
+    background-color: rgb(128, 255, 191)
+}
+
+.periodic-table-group-3 .periodic-table-element{
+    background-color: rgb(38, 255, 147)
+}
+
+.periodic-table-group-4 .periodic-table-element{
+    background-color: rgb(133, 243, 99)
+}
+
+.periodic-table-group-5 .periodic-table-element{
+    background-color: rgb(138, 236, 92)
+}
+
+.periodic-table-group-6 .periodic-table-element{
+    background-color: rgb(167, 224, 92)
+}
+
+.periodic-table-group-7 .periodic-table-element{
+    background-color: rgb(177, 241, 93)
+}
+
+.periodic-table-group-8 .periodic-table-element{
+    background-color: rgb(219, 233, 98)
+}
+
+.periodic-table-group-9 .periodic-table-element{
+    background-color: rgb(224, 240, 85)
+}
+
+.periodic-table-group-10 .periodic-table-element{
+    background-color: rgb(255, 252, 89)
+}
+
+.periodic-table-group-11 .periodic-table-element{
+    background-color: rgb(255, 214, 100)
+}
+
+.periodic-table-group-12 .periodic-table-element{
+    background-color: rgb(255, 187, 85)
+}
+
+.periodic-table-group-13 .periodic-table-element{
+    background-color: rgb(255, 177, 104)
+}
+
+.periodic-table-group-14 .periodic-table-element{
+    background-color: rgb(252, 155, 255)
+}
+
+.periodic-table-group-15 .periodic-table-element{
+    background-color: rgb(255, 183, 249)
+}
+
+.periodic-table-group-16 .periodic-table-element{
+    background-color: rgb(255, 183, 233)
+}
+
+.periodic-table-group-17 .periodic-table-element{
+    background-color: rgb(255, 183, 219)
+}
+
+.periodic-table-group-18 .periodic-table-element{
+    background-color: rgb(255, 183, 225)
+}
+
+.periodic-table-group{
+    display: flex;
+    justify-content: center;
+    width: 4vw;
+    height: 2vw;
+}
+.periodic-table-line{
+    height: 4vw;
+    margin: 0 0 2vh 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body p {
+    display: flex;
+    justify-content: center;
+}
