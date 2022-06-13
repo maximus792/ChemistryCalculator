@@ -41,7 +41,9 @@ function findName(arr) {//arr resolve del oxid ex
         t = terms[1];
 
     else if (arr[2] == "oxoaniocomp")
-        return "aqui ha de retornar sulfat de coure";
+        return {
+            tradicional: "AAAAAAA"
+        };
     
     else if (arr[2] == "combbin")
         return {

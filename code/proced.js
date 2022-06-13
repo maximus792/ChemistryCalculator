@@ -160,13 +160,20 @@ function procedOxoanióComp(el, valprin) {
 
   val = valprin % 2 == 0 ? valprin / 2 : valprin;
   console.log("ELEMENT");
-  console.log(el);
+  console.log(el, "MARCEL GAY");
   text = `
     
     A partir de l'oxoanió formem el compost afegint l'element:
     <br><br>
     
      `;
+  //codi Marcel
+  var d;
+  if (el[4].valences.length > 1)
+    d =" ("+roman(el[3])+")";
+  else
+    d = "";
+
   if (!simp)
     text += `
     <div class="proced-box">
@@ -176,13 +183,14 @@ function procedOxoanióComp(el, valprin) {
     }</sub>)<sup>-1</sup> &rarr; ${el[4].name.symbol}(${symbol}O<sub>${
       (val + 1) / 2 == 1 ? "" : (val + 1) / 2
     }</sub>)<sub>${el[3]}</sub>
+    
 
     ${
       !simp
         ? "<br><b>" +
           capitalize(findName([valprin, el[1], "oxoanio"]).tradicional) +
           " de " +
-          capitalize(el[4].name.fullName) +
+          capitalize(el[4].name.fullName) +d+
           "</b>"
         : ""
     }
@@ -218,7 +226,7 @@ function procedOxoanióComp(el, valprin) {
         ? "<br><b>" +
           capitalize(findName([valprin, el[1], "oxoanio"]).tradicional) +
           " de " +
-          capitalize(el[4].name.fullName) +
+          capitalize(el[4].name.fullName) + d +
           "</b>"
         : ""
     }
